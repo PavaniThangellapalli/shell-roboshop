@@ -14,7 +14,7 @@ echo Installing Nginx
 dnf install nginx -y &>>log_file
 Status_Print $?
 
-Copying Nginx Configuration file
+echo Copying Nginx Configuration file
 cp nginx.conf /etc/nginx/nginx.conf &>>log_file
 Status_Print $?
 
