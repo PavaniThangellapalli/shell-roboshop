@@ -1,3 +1,5 @@
+source ./common.sh
+
 app_name=frontend
 
 echo Disabling Nginx default version
