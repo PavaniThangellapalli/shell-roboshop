@@ -4,10 +4,14 @@ app_name=shipping
 
 JAVA
 
-dnf install mysql -y
+echo Installing MySQL
+dnf install mysql -y &>>$log_file
+Status_Print $?
 
-mysql -h mysql-dev.pdevops.online -uroot -pRoboShop@1 < /app/db/schema.sql
-mysql -h mysql-dev.pdevops.online -uroot -pRoboShop@1 < /app/db/app-user.sql
-mysql -h mysql-dev.pdevops.online -uroot -pRoboShop@1 < /app/db/master-data.sql
+for file in schema app-user master-data ; do
+  echo Loading $file
+  mysql -h mysql-dev.pdevops.online -uroot -pRoboShop@1 < /app/db/$file.sql &>>$log_file
+  Status_Print $?
 
+done
 

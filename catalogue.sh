@@ -4,10 +4,15 @@ app_name=catalogue
 
 NODEJS
 
-cp mongo.repo /etc/yum.repos.d/mongo.repo
+echo Copying MongoDB repo file
+cp mongo.repo /etc/yum.repos.d/mongo.repo &>>log_file
+Status_Print $?
 
-dnf install mongodb-mongosh -y
+echo Installing MongoDB
+dnf install mongodb-mongosh -y &>>log_file
+Status_Print $?
 
-mongosh --host mongodb-dev.pdevops.online </app/db/master-data.js
-
+echo Loading the schema
+mongosh --host mongodb-dev.pdevops.online </app/db/master-data.js &>>log_file
+Status_Print $?
 
