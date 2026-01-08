@@ -15,7 +15,10 @@ Status_Print()
 APP_PREREQ()
 {
    echo Creating application user
-   useradd roboshop &>>$log_file
+   id roboshop &>>$log_file
+   if [ $? -ne 0 ] ; then
+    useradd roboshop &>>$log_file
+   fi
    Status_Print $?
 
    echo Removing app directory
