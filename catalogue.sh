@@ -5,7 +5,7 @@ app_name=catalogue
 NODEJS
 
 echo Copying MongoDB repo file
-cp mongo.repo /etc/yum.repos.d/mongo.repo &>>log_file
+cp $dir_path/mongo.repo /etc/yum.repos.d/mongo.repo &>>log_file
 Status_Print $?
 
 echo Installing MongoDB
