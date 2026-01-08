@@ -28,7 +28,7 @@ rm -rf /usr/share/nginx/html/* &>>log_file
 Status_Print $?
 
 echo Downloading Application code
-curl -o /tmp/$app_name https://roboshop-artifacts.s3.amazonaws.com/$app_name-v3.zip &>>log_file
+curl -o /tmp/$app_name.zip https://roboshop-artifacts.s3.amazonaws.com/$app_name-v3.zip &>>log_file
 Status_Print $?
 
 echo Changing Application directory
