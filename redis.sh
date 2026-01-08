@@ -12,7 +12,7 @@ echo Installing Redis Version
 dnf install redis -y &>>$log_file
 Status_Print $?
 
-echo Updating Listen Address & Protected mode
+echo "Updating Listen Address & protected mode"
 sed -i -e 's/127.0.0.1/0.0.0.0/' -e '/protected-mode yes/ c protected-mode no' /etc/redis/redis.conf &>>$log_file
 Status_Print $?
 
