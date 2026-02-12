@@ -1,5 +1,7 @@
 source ./common.sh
 
+firewall_allow
+
 if [ -z "$MYSQL_ROOT_PASSWORD" ] ; then
   echo MYSQL_ROOT_PASSWORD input is needed
   exit 1

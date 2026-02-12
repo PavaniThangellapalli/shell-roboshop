@@ -2,6 +2,14 @@ dir_path=$(pwd)
 log_file=/tmp/roboshop.log
 rm -f $log_file
 
+firewall_allow()
+{
+  echo Allowing Http from Firewall
+  firewall-cmd --permanent --add-service=http &>>log_file
+  firewall-cmd --reload &>>log_file
+  Status_Print $?
+}
+
 Status_Print()
 {
    if [ $1 -eq 0 ] ; then
