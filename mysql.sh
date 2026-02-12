@@ -1,5 +1,7 @@
 source ./common.sh
 
+Git
+
 firewall_allow
 
 if [ -z "$MYSQL_ROOT_PASSWORD" ] ; then

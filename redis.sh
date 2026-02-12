@@ -1,5 +1,7 @@
 source ./common.sh
 
+Git
+
 firewall_allow
 
 echo Disabling default Redis Version
