@@ -1,7 +1,5 @@
 source ./common.sh
 
-Git
-
 firewall_allow
 
 echo Copying mongodb repo file

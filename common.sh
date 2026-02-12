@@ -2,17 +2,6 @@ dir_path=$(pwd)
 log_file=/tmp/roboshop.log
 rm -f $log_file
 
-Git()
-{
-  echo Installing GIT
-  sudo dnf install git -y
-  Status_Print $?
-
-  echo Cloning Git Shell Repo
-  git clone https://github.com/PavaniThangellapalli/shell-roboshop.git
-  Status_Print $?
-}
-
 firewall_allow()
 {
   echo Allowing Http from Firewall
