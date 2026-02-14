@@ -2,11 +2,6 @@ source ./common.sh
 
 firewall_disable
 
-if [ -z "$MYSQL_ROOT_PASSWORD" ] ; then
-  echo MYSQL_ROOT_PASSWORD input is needed
-  exit 1
-fi
-
 echo Installing MySQL
 dnf install mysql-server -y &>>$log_file
 Status_Print $?
@@ -17,5 +12,5 @@ systemctl start mysqld &>>$log_file
 Status_Print $?
 
 echo Changing the default root password
-mysql_secure_installation --set-root-pass $MYSQL_ROOT_PASSWORD &>>$log_file
+mysql_secure_installation --set-root-pass RoboShop@1 &>>$log_file
 Status_Print $?
