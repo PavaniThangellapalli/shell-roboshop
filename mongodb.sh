@@ -13,8 +13,9 @@ sed -i 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf &>>log_file
 Status_Print $?
 
 echo allow port 27017
-firewall-cmd --permanent --add-port=27017/tcp
-firewall-cmd --reload
+firewall-cmd --permanent --add-port=27017/tcp &>>log_file
+firewall-cmd --reload &>>log_file
+Status_Print $?
 
 echo Starting Mongod service
 systemctl enable mongod &>>log_file
