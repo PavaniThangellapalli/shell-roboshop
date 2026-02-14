@@ -16,7 +16,7 @@ echo "Updating Listen Address & protected mode"
 sed -i -e 's/127.0.0.1/0.0.0.0/' -e '/protected-mode yes/ c protected-mode no' /etc/redis/redis.conf &>>$log_file
 Status_Print $?
 
-echo allow port 27017
+echo allow port 6379
 firewall-cmd --permanent --add-port=6379/tcp &>>log_file
 firewall-cmd --reload &>>log_file
 Status_Print $?
