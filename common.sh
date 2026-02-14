@@ -2,11 +2,11 @@ dir_path=$(pwd)
 log_file=/tmp/roboshop.log
 rm -f $log_file
 
-firewall_allow()
+firewall_disable()
 {
-  echo Allowing Http from Firewall
-  firewall-cmd --permanent --add-service=http &>>log_file
-  firewall-cmd --reload &>>log_file
+  echo Disabling Firewall
+  systemctl stop firewalld &>>log_file
+  systemctl disable firewalld &>>log_file
   Status_Print $?
 }
 

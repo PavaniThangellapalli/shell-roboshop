@@ -2,6 +2,8 @@ source ./common.sh
 
 app_name=catalogue
 
+firewall_disable
+
 NODEJS
 
 echo Allowing port

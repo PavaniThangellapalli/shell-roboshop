@@ -2,6 +2,8 @@ source ./common.sh
 
 app_name=frontend
 
+firewall_disable
+
 echo Disabling Nginx default version
 dnf module disable nginx -y &>>log_file
 Status_Print $?
@@ -26,8 +28,6 @@ Status_Print $?
 echo Removing Default Nginx code
 rm -rf /usr/share/nginx/html/* &>>log_file
 Status_Print $?
-
-firewall_allow
 
 echo allow NGINX to connect to backend ports
 setsebool -P httpd_can_network_connect 1 &>>log_file

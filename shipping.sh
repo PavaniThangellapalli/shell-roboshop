@@ -2,6 +2,8 @@ source ./common.sh
 
 app_name=shipping
 
+firewall_disable
+
 JAVA
 
 echo Installing MySQL

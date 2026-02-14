@@ -1,5 +1,7 @@
 source ./common.sh
 
+firewall_disable
+
 echo Copying mongodb repo file
 cp mongo.repo /etc/yum.repos.d/mongo.repo &>>log_file
 Status_Print $?
@@ -10,11 +12,6 @@ Status_Print $?
 
 echo Updating listen address
 sed -i 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf &>>log_file
-Status_Print $?
-
-echo allow port 27017
-firewall-cmd --permanent --add-port=27017/tcp &>>log_file
-firewall-cmd --reload &>>log_file
 Status_Print $?
 
 echo Starting Mongod service
