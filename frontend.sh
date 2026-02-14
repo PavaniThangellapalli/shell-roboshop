@@ -1,12 +1,5 @@
 source ./common.sh
 
-firewall_allow
-
-echo allow NGINX to connect to backend ports
-setsebool -P httpd_can_network_connect 1 &>>log_file
-systemctl reload nginx &>>log_file
-Status_Print $?
-
 app_name=frontend
 
 echo Disabling Nginx default version
@@ -32,6 +25,13 @@ Status_Print $?
 
 echo Removing Default Nginx code
 rm -rf /usr/share/nginx/html/* &>>log_file
+Status_Print $?
+
+firewall_allow
+
+echo allow NGINX to connect to backend ports
+setsebool -P httpd_can_network_connect 1 &>>log_file
+systemctl reload nginx &>>log_file
 Status_Print $?
 
 echo Downloading Application code
