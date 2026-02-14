@@ -1,7 +1,5 @@
 source ./common.sh
 
-firewall_allow
-
 echo Copying mongodb repo file
 cp mongo.repo /etc/yum.repos.d/mongo.repo &>>log_file
 Status_Print $?

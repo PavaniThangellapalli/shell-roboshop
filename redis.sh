@@ -1,7 +1,5 @@
 source ./common.sh
 
-firewall_allow
-
 echo Disabling default Redis Version
 dnf module disable redis -y &>>$log_file
 Status_Print $?
