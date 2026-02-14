@@ -2,6 +2,11 @@ source ./common.sh
 
 firewall_allow
 
+echo allow NGINX to connect to backend ports
+sudo setsebool -P httpd_can_network_connect 1 &>>log_file
+sudo systemctl reload nginx &>>log_file
+Status_Print $?
+
 app_name=frontend
 
 echo Disabling Nginx default version
